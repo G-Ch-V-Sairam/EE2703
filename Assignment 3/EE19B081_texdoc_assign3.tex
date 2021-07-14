@@ -1,0 +1,86 @@
+
+\documentclass[11pt, a4paper]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+
+
+\title{Assignment No 3:Fitting data to models}
+\author{G Ch V Sairam , EE19B081} 
+\date{03-03-2021}
+\begin{document}		
+		
+\maketitle 
+\section{Introduction}
+
+This week's assignment starts off with generating data as a linear combination
+of the Bessel Function and some noise.
+f(t)=A*$J_2$(t)-B*t+n(t)
+where
+\begin{itemize}
+  	\item A=1.05
+  	\item B=-0.105
+  	\item $J_2$(t)=Bessel function of 2nd order
+  	\item n(t)= Noise function
+\end{itemize}
+  
+\section*{Assignment problems}
+\subsection*{Part 2}
+loadtxt function was used to import data from the file.
+The data consists of 10 columns. The first columns represents the time and the remaining 9 columns are the required function values with varying levels of noise.
+\lstinputlisting[language=Python, firstline=23, lastline=25]{EE19B081_assign3.py}
+\subsection*{Parts 3,4}
+The plot generated from the data given and the original function with A=1.05 and B=-0.105 are plotted using the plot function.
+
+   \begin{figure}[!tbh]
+   	\centering
+   	\includegraphics[scale=0.5]{plot0}   
+   	\caption{Combined plot for parts 3 and 4}
+   	\label{fig:plot0}
+   \end{figure} 
+
+\subsection*{Part 5}
+The errorbars are represented by red dots
+\begin{figure}[!tbh]
+	\centering
+	\includegraphics[scale=0.5]{plot1}
+	\caption{Plot for part 5}
+	\label{fig:plot1}
+\end{figure}
+
+\subsection*{Parts 6 and 7}
+We an use the if function and use flags to check whether the 2 arrays are equal or not. And we can find the error matrix by appending the values using a for loop.
+
+\subsection*{Part 8}
+\lstinputlisting[language=Python, firstline=96, lastline=102]{EE19B081_assign3.py}
+The contour plot of the mean squared error versus the parameters A and B
+is given in the below plot. As we can see, there is a single minima at the indicated point in the plot.
+
+\begin{figure}[!tbh]
+	\centering
+	\includegraphics[scale=0.5]{plot2}
+	\caption{Plot for part 8}
+	\label{fig:plot2}
+\end{figure}
+
+\subsection*{Part 10}
+The plot of error in the estimate of A and B with noise is given in figure 4.
+As we can see, the error in estimate has non linear variation.
+\begin{figure}[!tbh]
+	\centering
+	\includegraphics[scale=0.5]{plot3}
+	\caption{Plot for part 10}
+	\label{fig:plot3}
+\end{figure}
+
+\subsection*{Part 11}
+Here , we must use the plot.loglog function instead of just using plot.
+However when we plot the error returned by the lstsq function It is nearly linear. This is because our noise varies on a logarithmic scale.
+\begin{figure}[!tbh]
+	\centering
+	\includegraphics[scale=0.5]{plot4}
+	\caption{Plot for part 11}
+	\label{fig:plot4}
+\end{figure}
+
+\end{document}
